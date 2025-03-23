@@ -5,6 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>That Festival Site</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="image" href="abhishek.png" />
+    <link rel="preload" as="image" href="IMG_1937.JPG" />
+    <script>
+      // Add this script to handle smart lazy loading
+      document.addEventListener('DOMContentLoaded', function() {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                // Pre-load the image
+                const tempImage = new Image();
+                tempImage.onload = function() {
+                  img.src = img.dataset.src;
+                  img.style.opacity = 1;
+                  img.removeAttribute('data-src');
+                };
+                tempImage.src = img.dataset.src;
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, {
+          rootMargin: '50px 0px',
+          threshold: 0.01
+        });
+
+        document.querySelectorAll('img.all-icon').forEach(img => {
+          img.style.opacity = 0;
+          imageObserver.observe(img);
+        });
+      });
+
+      function showClowneryAlert() {
+        alert('you cant explore this cuz there is too much clownery for you to handle');
+      }
+
+      // Add new function for subscribe alert
+      function showSubscribeAlert(event) {
+        event.preventDefault(); // Prevent form submission
+        alert("Congratulations! You have successfully subscribed to being retarded.");
+      }
+    </script>
+    <style>
+      .all-icon {
+        contain: layout style paint;
+        width: 150px;
+        height: 150px;
+        background: #f0f0f0; /* Placeholder color */
+        transition: opacity 0.3s;
+        will-change: opacity;
+        transform: translateZ(0);
+      }
+      
+      .all-container {
+        contain: content;
+        will-change: contents;
+        transform: translateZ(0);
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      .row {
+        contain: layout style;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        transform: translateZ(0);
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -17,7 +86,7 @@
           <p class="content">
             drowning in a wave of natak and nonstop "rr," where the members are suffering so hard you'd think it's a damn tragedy, but nah, nobody's actually hurting. It's the real epitome of clownery, this dude flipping every convo into a circus while everyone's just watching the shitshow like, "Bro, what the fuck?
           </p>
-          <button href="#" class="link">Explore Now</button>
+          <button href="#" class="link" onclick="showClowneryAlert()">Explore Now</button>
         </div>
       </div>
       <div class="main-right"></div>
@@ -31,30 +100,250 @@
       </p>
       <div class="all-container">
         <div class="row">
-          <img src="abhishek.png" alt="all icon" class="all-icon" />
-          <img src="IMG_1937.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_1430.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_4335.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_1641.JPG" alt="all icon" class="all-icon" />
-          <img src="nasir_m.jpg" alt="all icon" class="all-icon" />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="abhishek.png" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_1937.JPG" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_1430.jpeg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="ghar_1.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_1641.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="hallan.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
         </div>
         <div class="row">
-          <img src="nsa_b.jpg" alt="all icon" class="all-icon" />
-          <img src="mumbai.jpg" alt="all icon" class="all-icon" />
-          <img src="ghar.jpg" alt="all icon" class="all-icon" />
-          <img src="IMG_1447.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_1937.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_4126.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_1447.JPG" alt="all icon" class="all-icon" />
-          <img src="IMG_5919.jpg" alt="all icon" class="all-icon" />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="nsa_b.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="mumbai.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="ghar.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="THREE.jpeg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_1937.JPG" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="snow.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="us.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_1519.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
         </div>
         <div class="row">
-          <img src="IMG_5926.jpg" alt="all icon" class="all-icon" />
-          <img src="IMG_6132.jpg" alt="all icon" class="all-icon" />
-          <img src="nsa.jpg" alt="all icon" class="all-icon" />
-          <img src="adu.jpg"all icon" class="all-icon" />
-          <img src="machli.jpg" alt="all icon" class="all-icon" />
-          <img src="dog.jpg" alt="all icon" class="all-icon" />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="nasir_m_12_11zon.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="IMG_6132.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="nsa.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="adu.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="machli.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
+          <img 
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+            data-src="dog.jpg" 
+            alt="all icon" 
+            class="all-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="200" 
+            height="200" 
+            onload="this.style.opacity=1" 
+            style="opacity: 0"
+          />
         </div>
       </div>
     </section>
@@ -80,7 +369,7 @@
           <div class="latest-info">
             <h3 class="info-title">Adnan Khan</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">Adnan, God's favorite son, was born with the *naseeb*—blessed with luck, wealth, and a life that seems effortlessly perfect. He pays zero taxes, earns in dollars, and travels the world like it's his backyard. While the rest of us are out here struggling, grinding, and barely making ends meet, he's living large without a care. On top of that, he's a great dancer and even has a queen by his side. Of course, it all makes sense—bro is simply winning at life.</p>
+            <p class="info-date custom-text">Adnan, God’s favorite son, was born with the naseeb—blessed with luck, wealth, and a life that seems effortlessly perfect. He pays zero taxes, earns in dollars, and travels the world like it’s his backyard. On top of that, he’s a great dancer and even has a queen by his side. But working his ass off 24/7 on a ship, staring at the ocean, he might just fall off and realize this shitty life’s got its downsides, though it all makes sense—bro is still winning at life.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Delhi</p>
@@ -92,7 +381,7 @@
           <div class="latest-info">
             <h3 class="info-title">Abhishek</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">The most toxic person you'll ever meet—fumble master final boss, a full-time nasedi who's dabbled in every nasha under the sun, rocking hizru boy vibes like a badge of honor. He's the guy who can't move on, stuck in a loop blasting Seedhe Maut, basically Arpit Bala incarnate, right down to the way he talks, all swagger and no substance.</p>
+            <p class="info-date custom-text">Abhishek, the most toxic person you’ll ever meet—fumble master final boss, a full-time nasedi who’s dabbled in every nasha under the sun, red hair guy, rocking the full e-boy vibe like a badge of honor. He’s the guy who can’t move on, stuck in a loop blasting Seedhe Maut, basically Arpit Bala incarnate, right down to the way he talks, all swagger and no substance. Bro might be a hip-hop sucker, but he’s still a walking disaster.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Delhi</p>
@@ -104,7 +393,7 @@
           <div class="latest-info">
             <h3 class="info-title">Harshil</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">The worst admin the group chat's ever got—a literal dictator, creator of every dispute in the GC, every weird thing that's ever started there traces back to this man. The undisputed Natak King, capable of delivering Oscar-worthy drama at midnight over the smallest shit, like who ate the last samosa. Also, the only person in the group with a driving license—the one good thing he's got going—otherwise, he's unbearable as hell, plus bro is so unhealthy he'd probably go flying if a storm rolled in.</p>
+            <p class="info-date custom-text">Here’s the worst admin the group chat’s ever seen—a literal dictator, creator of every dispute in the GC, every weird thing that’s ever sparked there traces back to this man. The undisputed Natak King, capable of killing the vibe at midnight over petty bullshit like who ate the last samosa. Also, bro’s only good at driving—otherwise, he’s unbearable as hell, plus he’s so unhealthy he’d probably go flying if a storm rolled in.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Ahemdabad</p>
@@ -116,7 +405,7 @@
           <div class="latest-info">
             <h3 class="info-title">Shubhankar Pillay</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">The guy who single-handedly took the GC international (UK edition). The oldest member of the squad—on paper, he should have two kids by now, but he's still single (thanks to... well, fate and questionable choices). A certified toxic entity—less toxic than Mochi but still a menace—with legendary anger issues and unpredictable mood swings.</p>
+            <p class="info-date custom-text">Shubhankar, hailing from the hustle of Pune, Maharashtra, now kicking it in the UK, is the oldest in the GC but still debates like a teenager, armed with two master’s degrees and a hard-on for British life over India. He works his ass off every day while tossing random arguments into the group chat like it’s his side gig. Bro’s just chill, casually smart—and yet he’s always ready to spar over the tiniest shit. Shubhankar’s the type who’d rather suck up to the white man and praise India’s past while forgetting what the Brits did to it, living his days like a seasoned student who never left the classroom.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Pune</p>
@@ -163,19 +452,21 @@
             </h3>
             <span class="news-content-span">17 April, 2024</span>
             <p class="news-content-para">
-             From e homies to to meeting irl for the first time.
+              From e homies to to meeting irl for the first time.
             </p>
             <div class="news-tags-content">
               <p class="news-tag">Rajasthan</p>
-              <p class="news-tag">Photos</p>
+              <button class="news-tag">Photos</button>
             </div>
           </div>
           <div class="news-content-right">
-            <img
-              src="./top-right-icon.svg"
-              alt="top-right-icon"
-              class="news-right-icon"
-            />
+            <a href="https://drive.google.com/drive/folders/1OjTMpengc-Qubgsd8S1jicXWDurt-jtP" target="_blank">
+              <img
+                src="./top-right-icon.svg"
+                alt="top-right-icon"
+                class="news-right-icon"
+              />
+            </a>
           </div>
         </div>
         <div class="news-container">
@@ -189,15 +480,17 @@
             </p>
             <div class="news-tags-content">
               <p class="news-tag">Himachal Pradesh</p>
-              <p class="news-tag">Photos</p>
+              <button class="news-tag">Photos</button>
             </div>
           </div>
           <div class="news-content-right">
-            <img
-              src="./top-right-icon.svg"
-              alt="top-right-icon"
-              class="news-right-icon"
-            />
+            <a href="https://drive.google.com/drive/folders/18wyqWlxghZQaL_ixPD6W__L2ygBnyQWW" target="_blank">
+              <img
+                src="./top-right-icon.svg"
+                alt="top-right-icon"
+                class="news-right-icon"
+              />
+            </a>
           </div>
         </div>
         <div class="news-container">
@@ -211,15 +504,17 @@
             </p>
             <div class="news-tags-content">
               <p class="news-tag">Himachal Pradesh</p>
-              <p class="news-tag">Photos</p>
+              <button class="news-tag">Photos</button>
             </div>
           </div>
           <div class="news-content-right">
-            <img
-              src="./top-right-icon.svg"
-              alt="top-right-icon"
-              class="news-right-icon"
-            />
+            <a href="https://drive.google.com/drive/folders/1kLEadMlYA92TCB0J7iYRyeMZkVI0pnnT?usp=drive_link" target="_blank">
+              <img
+                src="./top-right-icon.svg"
+                alt="top-right-icon"
+                class="news-right-icon"
+              />
+            </a>
           </div>
         </div>
         <div class="news-container">
@@ -232,7 +527,7 @@
               coldplay only two members
             </p>
             <div class="news-tags-content">
-              <p class="news-tag">Himachal Pradesh</p>
+              <p class="news-tag">Maharashtra</p>
               <p class="news-tag">Photos</p>
             </div>
           </div>
@@ -250,9 +545,9 @@
       </div>
     </section>
     <section class="upcoming-section">
-      <h2 class="upcoming-title">Upcoming Music Festivals</h2>
+      <h2 class="upcoming-title">Moments</h2>
       <p class="upcoming-para">
-        Discover all the moments you should witness in this GC
+        Discover the good moments of this GC.
       </p>
       <div class="upcoming-container">
         <video class="upcoming-img upcoming-video" controls style="width: 371.875px; height: 475.163px; object-fit: cover;">
@@ -264,7 +559,7 @@
           Your browser does not support the video tag.
         </video>
         <video class="upcoming-img upcoming-video" controls style="width: 371.875px; height: 475.163px; object-fit: cover;">
-          <source src="IMG_4212.MOV" type="video/mp4">
+          <source src="IMG_4212.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <video class="upcoming-img upcoming-video" controls style="width: 371.875px; height: 475.163px; object-fit: cover;">
@@ -335,7 +630,7 @@
           Don't wanna miss something? Subscribe right now for monthly updates on
           the latest festival news
         </p>
-        <form class="footer-form">
+        <form class="footer-form" onsubmit="showSubscribeAlert(event)">
           <input
             type="email"
             name="email"
