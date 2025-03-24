@@ -73,6 +73,39 @@
         gap: 1rem;
         transform: translateZ(0);
       }
+
+      .footer-link audio {
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+      }
+
+      .footer-link audio::-webkit-media-controls-panel {
+        background-color: #f0f0f0;
+      }
+
+      .footer-link audio::-webkit-media-controls-play-button,
+      .footer-link audio::-webkit-media-controls-volume-slider,
+      .footer-link audio::-webkit-media-controls-timeline {
+        filter: invert(0.7);
+      }
+
+      .footer-link {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+      }
+
+      .footer-list {
+        color: #000;
+        text-decoration: none;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -369,7 +402,7 @@
           <div class="latest-info">
             <h3 class="info-title">Adnan Khan</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">Adnan, God’s favorite son, was born with the naseeb—blessed with luck, wealth, and a life that seems effortlessly perfect. He pays zero taxes, earns in dollars, and travels the world like it’s his backyard. On top of that, he’s a great dancer and even has a queen by his side. But working his ass off 24/7 on a ship, staring at the ocean, he might just fall off and realize this shitty life’s got its downsides, though it all makes sense—bro is still winning at life.</p>
+            <p class="info-date custom-text">Adnan, God's favorite son, was born with the naseeb—blessed with luck, wealth, and a life that seems effortlessly perfect. He pays zero taxes, earns in dollars, and travels the world like it's his backyard. On top of that, he's a great dancer and even has a queen by his side. But working his ass off 24/7 on a ship, staring at the ocean, he might just fall off and realize this shitty life's got its downsides, though it all makes sense—bro is still winning at life.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Delhi</p>
@@ -381,7 +414,7 @@
           <div class="latest-info">
             <h3 class="info-title">Abhishek</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">Abhishek, the most toxic person you’ll ever meet—fumble master final boss, a full-time nasedi who’s dabbled in every nasha under the sun, red hair guy, rocking the full e-boy vibe like a badge of honor. He’s the guy who can’t move on, stuck in a loop blasting Seedhe Maut, basically Arpit Bala incarnate, right down to the way he talks, all swagger and no substance. Bro might be a hip-hop sucker, but he’s still a walking disaster.</p>
+            <p class="info-date custom-text">Abhishek, the most toxic person you'll ever meet—fumble master final boss, a full-time nasedi who's dabbled in every nasha under the sun, red hair guy, rocking the full e-boy vibe like a badge of honor. He's the guy who can't move on, stuck in a loop blasting Seedhe Maut, basically Arpit Bala incarnate, right down to the way he talks, all swagger and no substance. Bro might be a hip-hop sucker, but he's still a walking disaster.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Delhi</p>
@@ -393,7 +426,7 @@
           <div class="latest-info">
             <h3 class="info-title">Harshil</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">Here’s the worst admin the group chat’s ever seen—a literal dictator, creator of every dispute in the GC, every weird thing that’s ever sparked there traces back to this man. The undisputed Natak King, capable of killing the vibe at midnight over petty bullshit like who ate the last samosa. Also, bro’s only good at driving—otherwise, he’s unbearable as hell, plus he’s so unhealthy he’d probably go flying if a storm rolled in.</p>
+            <p class="info-date custom-text">Here's the worst admin the group chat's ever seen—a literal dictator, creator of every dispute in the GC, every weird thing that's ever sparked there traces back to this man. The undisputed Natak King, capable of killing the vibe at midnight over petty bullshit like who ate the last samosa. Also, bro's only good at driving—otherwise, he's unbearable as hell, plus he's so unhealthy he'd probably go flying if a storm rolled in.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Ahemdabad</p>
@@ -405,7 +438,7 @@
           <div class="latest-info">
             <h3 class="info-title">Shubhankar Pillay</h3>
             <p class="info-date">2018 - 2022</p>
-            <p class="info-date custom-text">Shubhankar, hailing from the hustle of Pune, Maharashtra, now kicking it in the UK, is the oldest in the GC but still debates like a teenager, armed with two master’s degrees and a hard-on for British life over India. He works his ass off every day while tossing random arguments into the group chat like it’s his side gig. Bro’s just chill, casually smart—and yet he’s always ready to spar over the tiniest shit. Shubhankar’s the type who’d rather suck up to the white man and praise India’s past while forgetting what the Brits did to it, living his days like a seasoned student who never left the classroom.</p>
+            <p class="info-date custom-text">Shubhankar, hailing from the hustle of Pune, Maharashtra, now kicking it in the UK, is the oldest in the GC but still debates like a teenager, armed with two master's degrees and a hard-on for British life over India. He works his ass off every day while tossing random arguments into the group chat like it's his side gig. Bro's just chill, casually smart—and yet he's always ready to spar over the tiniest shit. Shubhankar's the type who'd rather suck up to the white man and praise India's past while forgetting what the Brits did to it, living his days like a seasoned student who never left the classroom.</p>
             <div class="info-address">
               <img src="./pin.svg" alt="pin" class="pin" />
               <p class="info-location">Pune</p>
@@ -644,23 +677,13 @@
       <div class="footer-right">
         <ul class="footer-right-top">
           <li class="footer-link">
-            <a href="" class="footer-list">Home</a>
+            <a href="" class="footer-list">Listen to what adnan has to say for mom jokes</a>
+            <audio controls>
+                <source src="adnan_mom.opus" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
           </li>
-          <li class="footer-link">
-            <a href="" class="footer-list">About Us</a>
-          </li>
-          <li class="footer-link">
-            <a href="" class="footer-list">Festivals</a>
-          </li>
-          <li class="footer-link">
-            <a href="" class="footer-list">Artists</a>
-          </li>
-          <li class="footer-link">
-            <a href="" class="footer-list">News</a>
-          </li>
-          <li class="footer-link">
-            <a href="" class="footer-list">Contact Us</a>
-          </li>
+          
         </ul>
         <div class="footer-right-bottom">
           <ul class="footer-socials">
