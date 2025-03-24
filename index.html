@@ -47,6 +47,25 @@
         event.preventDefault(); // Prevent form submission
         alert("Congratulations! You have successfully subscribed to being retarded.");
       }
+
+      // Add this new function
+      function showTermsModal() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'block';
+      }
+
+      function closeTermsModal() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'none';
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function(event) {
+        const modal = document.getElementById('termsModal');
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      }
     </script>
     <style>
       .all-icon {
@@ -105,6 +124,50 @@
         font-size: 1.1em;
         margin-bottom: 10px;
         display: block;
+      }
+
+      /* Add these new styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+      }
+
+      .modal-content {
+        position: relative;
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        width: 70%;
+        max-width: 700px;
+        border-radius: 8px;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+
+      .close-button {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #666;
+        cursor: pointer;
+      }
+
+      .close-button:hover {
+        color: #000;
+      }
+
+      .modal-title {
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding-right: 40px;
       }
     </style>
   </head>
@@ -605,8 +668,7 @@
       <div class="join-header">
         <h2 class="join-title">Join The Community</h2>
         <p class="join-content">
-          The ultimate destination for discovering new music festivals from
-          around the world
+          The ultimate destination for clownery in the world.
         </p>
       </div>
       <div class="join-container">
@@ -660,8 +722,7 @@
           Subscribe to stay up to date on the latest Festival News
         </h3>
         <p class="footer-content">
-          Don't wanna miss something? Subscribe right now for monthly updates on
-          the latest festival news
+          Don't wanna miss something? Subscribe right now to get a beautiful message.
         </p>
         <form class="footer-form" onsubmit="showSubscribeAlert(event)">
           <input
@@ -709,11 +770,40 @@
             </li>
           </ul>
           <div class="footer-options">
-            <a href="" class="options-link">Terms and conditions</a>
+            <a href="#" class="options-link" onclick="showTermsModal(); return false;">Terms and conditions</a>
             <a href="" class="options-link"> Privacy policy</a>
           </div>
         </div>
       </div>
     </footer>
+    <!-- Add this before the closing body tag -->
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeTermsModal()">&times;</span>
+        <h2 class="modal-title">Terms and Conditions</h2>
+        <div class="terms-content">
+          <h3>1. Daily Drama Requirements</h3>
+          <p>You have to do natak five times a day.</p>
+
+          <h3>2. Mandatory Performance Time</h3>
+          <p>Do fake for 10 straight minutes a day.</p>
+
+          <h3>3. Verbal Commitment</h3>
+          <p>Say legya five times a day.</p>
+
+          <h3>4. Social Interaction Clause</h3>
+          <p>Fumble a baddie once in your life.</p>
+
+          <h3>5. Transparency Policy</h3>
+          <p>Share all your secrets that even your childhood friends don't know.</p>
+
+          <h3>6. Non-Disclosure Penalties</h3>
+          <p>If found hiding something, be ready to face the consequences.</p>
+
+          <h3>7. General Provisions</h3>
+          <p>By joining this group, you acknowledge that sanity is optional and drama is mandatory. The group reserves the right to modify these terms based on the daily chaos quota.</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
